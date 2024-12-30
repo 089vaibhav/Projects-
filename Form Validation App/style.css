@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background: orange;
+    display: flex; /* Flexbox to center the form */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+#form {
+    width: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better appearance */
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Add spacing between each input field */
+    position: relative; /* Ensure proper layout for error messages */
+}
+
+.form-control input {
+    border: 2px solid #a39f9f;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 12px;
+    width: 100%;
+}
+
+.form-control .error {
+    color: #ff3960;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 14px; /* Ensure consistent spacing for error messages */
+}
+
+#form #btn {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-control.success input {
+    border-color: green;
+}
+
+.form-control.error input {
+    border-color: red;
+}
