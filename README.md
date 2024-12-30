@@ -1,1 +1,1 @@
-# Projects-
+# Projects - Practice for javscript
