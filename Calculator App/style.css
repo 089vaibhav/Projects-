@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+}
+
+.container {
+    padding: 20px;
+}
+
+.calc {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+#input {
+    width: 320px;
+    border: none;
+    padding: 24px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    font-size: 40px;
+    text-align: right;
+    color: #ffffff;
+    margin-bottom: 30px;
+    min-height: 80px;
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: right; /* Align the text to the right */
+}
+
+button {
+    height: 70px;
+    width: 70px;
+    margin: 8px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Operator buttons */
+button:nth-child(4n) {
+    background: rgba(0, 255, 255, 0.1);
+    font-size: 25px;
+}
+
+button:nth-child(4n):hover {
+    background: rgba(0, 255, 255, 0.2);
+}
+
+/* Clear button */
+button:first-child {
+    background: rgba(255, 59, 59, 0.1);
+}
+
+button:first-child:hover {
+    background: rgba(255, 59, 59, 0.2);
+}
+
+/* Equals button */
+button:last-child {
+    background: rgba(0, 255, 128, 0.1);
+}
+
+button:last-child:hover {
+    background: rgba(0, 255, 128, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .calc {
+        padding: 15px;
+    }
+
+    #input {
+        width: 280px;
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    button {
+        height: 60px;
+        width: 60px;
+        margin: 6px;
+        font-size: 18px;
+    }
+}
