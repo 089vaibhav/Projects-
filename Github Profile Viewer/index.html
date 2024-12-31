@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Viewer</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #profile {
+            margin-top: 20px;
+        }
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Profile Viewer</h1>
+
+        <input type="text" id="username" placeholder="Enter Username">
+        <button onclick="fetchProfile()">Get Profile</button>
+        <div id="profile"></div>
+    </div>
+
+    <script>
+        function fetchProfile() {
+            const username = document.getElementById("username").value.trim();
+            if (!username) {
+                alert("Enter a valid username.");
+                return;
+            }
+
+            fetch(`https://api.github.com/users/${username}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayProfile(data);
+                })
+                .catch(err => {
+                    console.error("There was a problem with the fetch operation: ", err);
+                    alert("User not found or an error occurred.");
+                });
+        }
+
+        function displayProfile(profileData) {
+            const profileElement = document.getElementById("profile");
+            profileElement.innerHTML = `
+                <img src="${profileData.avatar_url}" alt="${profileData.login}" width="150">
+                <h2>${profileData.login}</h2>
+                <p><strong>Name:</strong> ${profileData.name || "Not available"}</p>
+                <p><strong>Bio:</strong> ${profileData.bio || "No bio available"}</p>
+                <p><strong>Public Repos:</strong> ${profileData.public_repos}</p>
+                <p><strong>Followers:</strong> ${profileData.followers}</p>
+                <a href="${profileData.html_url}" target="_blank">View Profile</a>
+            `;
+        }
+    </script>
+</body>
+</html>
